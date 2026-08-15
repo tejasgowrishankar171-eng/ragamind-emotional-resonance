@@ -147,3 +147,126 @@
 @utility glow-primary {
   box-shadow: 0 0 60px -20px oklch(0.55 0.14 260 / 0.5);
 }
+
+/* ---------- Advanced aesthetic layer ---------- */
+
+@keyframes ragamind-float {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(0, -22px, 0) scale(1.06); }
+}
+
+@keyframes ragamind-drift {
+  0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.5; }
+  50% { transform: translate3d(18px, 14px, 0); opacity: 0.85; }
+}
+
+@keyframes ragamind-pulse-ring {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  70% { transform: scale(1.35); opacity: 0; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+
+@keyframes ragamind-shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Luminous gradient text for headings */
+@utility text-aurora {
+  background-image: linear-gradient(
+    100deg,
+    oklch(0.96 0.005 260) 0%,
+    oklch(0.78 0.11 255) 42%,
+    oklch(0.86 0.04 220) 62%,
+    oklch(0.96 0.005 260) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: ragamind-shimmer 9s linear infinite alternate;
+}
+
+/* Fine film grain over dark surfaces */
+@utility grain {
+  position: relative;
+}
+@utility grain-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  opacity: 0.045;
+  mix-blend-mode: soft-light;
+}
+
+/* Slow floating light orbs */
+@utility orb {
+  border-radius: 9999px;
+  filter: blur(80px);
+  animation: ragamind-float 18s ease-in-out infinite;
+}
+@utility orb-slow {
+  border-radius: 9999px;
+  filter: blur(100px);
+  animation: ragamind-drift 26s ease-in-out infinite;
+}
+
+/* Concentric ring pulse behind the logo */
+@utility pulse-ring {
+  animation: ragamind-pulse-ring 4.5s ease-out infinite;
+}
+
+/* Hairline gradient rules between sections */
+@utility rule-fade {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    oklch(0.6 0.12 260 / 0.45),
+    transparent
+  );
+}
+
+/* Card with gradient border + lift */
+@utility card-lux {
+  position: relative;
+  background:
+    linear-gradient(var(--card), var(--card)) padding-box,
+    linear-gradient(150deg, oklch(1 0 0 / 0.14), oklch(0.55 0.14 260 / 0.28), oklch(1 0 0 / 0.04)) border-box;
+  border: 1px solid transparent;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+@utility card-lux-hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 60px -30px oklch(0.55 0.14 260 / 0.75);
+}
+
+/* Animated underline for nav links */
+@utility link-underline {
+  position: relative;
+}
+
+@layer base {
+  .link-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 1px;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+    background: oklch(0.7 0.12 260);
+    transition: transform 0.35s ease;
+  }
+  .link-underline:hover::after {
+    transform: scaleX(1);
+  }
+  ::selection {
+    background: oklch(0.55 0.14 260 / 0.4);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+}
