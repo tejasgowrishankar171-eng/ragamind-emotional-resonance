@@ -98,7 +98,7 @@ function RagaCard({ raga }: { raga: Raga }) {
       </p>
 
       <div className="mt-5 flex flex-wrap gap-3">
-        <RagaPlayer arohana={raga.arohana} avarohana={raga.avarohana} />
+        <RagaPlayer ragaName={raga.name} arohana={raga.arohana} avarohana={raga.avarohana} />
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}

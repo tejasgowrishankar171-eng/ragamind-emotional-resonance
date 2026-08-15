@@ -61,10 +61,10 @@ function buildAlapana(arohana: string[], avarohana: string[], seed: string) {
 
   // 2. Slow ascent in overlapping waves through the arohana.
   for (let i = 1; i < up.length - 1; i++) {
-    push(up[i], 0.55 + rand() * 0.4);
-    if (rand() > 0.45) push(up[i - 1], 0.35 + rand() * 0.2);
-    push(up[i], 0.5 + rand() * 0.5);
-    if (rand() > 0.6 && i + 1 < up.length) push(up[i + 1], 0.4);
+    push(up[i]!, 0.55 + rand() * 0.4);
+    if (rand() > 0.45) push(up[i - 1]!, 0.35 + rand() * 0.2);
+    push(up[i]!, 0.5 + rand() * 0.5);
+    if (rand() > 0.6 && i + 1 < up.length) push(up[i + 1]!, 0.4);
   }
 
   // 3. Peak on the upper tonic, held.
@@ -74,8 +74,8 @@ function buildAlapana(arohana: string[], avarohana: string[], seed: string) {
 
   // 4. Descent, lingering on the characteristic notes.
   for (let i = 1; i < down.length; i++) {
-    push(down[i], 0.55 + rand() * 0.45);
-    if (rand() > 0.55) push(down[i - 1], 0.3 + rand() * 0.2);
+    push(down[i]!, 0.55 + rand() * 0.45);
+    if (rand() > 0.55) push(down[i - 1]!, 0.3 + rand() * 0.2);
   }
 
   // 5. Resolution.
@@ -186,7 +186,7 @@ export function RagaPlayer({
     ];
     const step = 0.85;
     for (let i = 0; start + i * step < start + total + 1.5; i++) {
-      oscillators.push(...pluck(cycle[i % cycle.length], start + i * step));
+      oscillators.push(...pluck(cycle[i % cycle.length]!, start + i * step));
     }
 
     // ---- Voice: formant-filtered "aa" with vibrato and gamaka glides ----
@@ -243,8 +243,8 @@ export function RagaPlayer({
 
     const hz = (semis: number) => BASE_HZ * Math.pow(2, semis / 12);
     let t = start;
-    vocalOsc.frequency.setValueAtTime(hz(notes[0].semis), t);
-    breath.frequency.setValueAtTime(hz(notes[0].semis) * 2, t);
+    vocalOsc.frequency.setValueAtTime(hz(notes[0]!.semis), t);
+    breath.frequency.setValueAtTime(hz(notes[0]!.semis) * 2, t);
 
     notes.forEach((n, i) => {
       const target = hz(n.semis);
