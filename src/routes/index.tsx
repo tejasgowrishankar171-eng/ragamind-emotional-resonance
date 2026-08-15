@@ -266,33 +266,25 @@ function Index() {
               Featured Ragas
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Four essential scales and the feelings they awaken.
+              Play each scale in your browser, then open a full concert
+              performance and read what shapes its mood.
             </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
             {featuredRagas.map((raga) => (
-              <div
-                key={raga.name}
-                className="rounded-2xl border border-border bg-card p-6 transition-all hover:border-primary/30"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 className="text-2xl font-semibold">{raga.name}</h3>
-                    <p className="mt-1 text-sm font-medium text-primary">
-                      {raga.feeling}
-                    </p>
-                  </div>
-                  <span className="rounded-full border border-border bg-background px-3 py-1 text-xs font-medium text-muted-foreground">
-                    {raga.emotion}
-                  </span>
-                </div>
-                <p className="mt-4 leading-relaxed text-muted-foreground">
-                  {raga.description}
-                </p>
-              </div>
+              <RagaCard key={raga.name} raga={raga} />
             ))}
           </div>
+
+          <p className="mt-8 text-center text-xs text-muted-foreground">
+            Scale structures and melakarta numbering follow the Chaturdandi
+            Prakasika tradition and standard references (Sambamoorthy,
+            <em> South Indian Music</em>); emotion findings draw on
+            cross-cultural raga-and-affect research such as Balkwill &amp;
+            Thompson (1999).
+          </p>
+
         </div>
       </section>
 
