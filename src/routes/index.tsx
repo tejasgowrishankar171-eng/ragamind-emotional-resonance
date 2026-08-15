@@ -1,4 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { RagaPlayer } from "@/components/RagaPlayer";
+import { featuredRagas, type Raga } from "@/data/ragas";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
