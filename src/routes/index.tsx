@@ -64,36 +64,88 @@ const emotions = [
   },
 ];
 
-const featuredRagas = [
-  {
-    name: "Shankarabharanam",
-    feeling: "Joy & Love",
-    emotion: "Happiness",
-    description:
-      "One of the most beloved melakarta ragas, Shankarabharanam radiates warmth, optimism, and romantic beauty.",
-  },
-  {
-    name: "Kharaharapriya",
-    feeling: "Compassion",
-    emotion: "Sadness",
-    description:
-      "Rich and introspective, Kharaharapriya is known for its deep empathy and soul-stirring pathos.",
-  },
-  {
-    name: "Kalyani",
-    feeling: "Devotion",
-    emotion: "Devotion",
-    description:
-      "With its elevated fourth, Kalyani carries a luminous, prayerful quality that uplifts the spirit.",
-  },
-  {
-    name: "Mohanam",
-    feeling: "Serenity",
-    emotion: "Peace",
-    description:
-      "A pentatonic raga of effortless calm, Mohanam feels like open sky and quiet contentment.",
-  },
-];
+function RagaCard({ raga }: { raga: Raga }) {
+  const [open, setOpen] = useState(false);
+  const panelId = `raga-${raga.name.toLowerCase()}`;
+
+  return (
+    <div className="rounded-2xl border border-border bg-card p-6 transition-all hover:border-primary/30">
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <h3 className="text-2xl font-semibold">{raga.name}</h3>
+          {raga.altName ? (
+            <p className="mt-1 text-xs text-muted-foreground">{raga.altName}</p>
+          ) : null}
+          <p className="mt-1 text-sm font-medium text-primary">
+            {raga.feeling}
+          </p>
+        </div>
+        <span className="rounded-full border border-border bg-background px-3 py-1 text-xs font-medium text-muted-foreground">
+          {raga.emotion}
+        </span>
+      </div>
+
+      <p className="mt-4 leading-relaxed text-muted-foreground">
+        {raga.description}
+      </p>
+
+      <p className="mt-4 font-mono text-xs leading-relaxed text-muted-foreground">
+        {raga.scaleLabel}
+      </p>
+
+      <div className="mt-5 flex flex-wrap gap-3">
+        <RagaPlayer arohana={raga.arohana} avarohana={raga.avarohana} />
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          aria-expanded={open}
+          aria-controls={panelId}
+          className="inline-flex items-center gap-2 rounded-lg border border-input px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-secondary"
+        >
+          {open ? "Hide details" : "Listen & learn"}
+        </button>
+      </div>
+
+      {open ? (
+        <div id={panelId} className="mt-6 border-t border-border pt-5">
+          <ul className="space-y-3 text-sm leading-relaxed text-muted-foreground">
+            {raga.bullets.map((point) => (
+              <li key={point} className="flex gap-3">
+                <span aria-hidden="true" className="mt-1 text-primary">
+                  •
+                </span>
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
+
+          <p className="mt-6 text-xs font-semibold uppercase tracking-wider text-foreground">
+            Full performances
+          </p>
+          <div className="mt-3 flex flex-wrap gap-3">
+            {raga.listen.map((item) => (
+              <a
+                key={item.artist}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground transition-colors hover:bg-secondary/70"
+              >
+                {item.artist}
+                <span aria-hidden="true">↗</span>
+              </a>
+            ))}
+          </div>
+          <p className="mt-3 text-xs text-muted-foreground">
+            Concert recordings open on the artists' official channels, so
+            performers keep full credit for their work.
+          </p>
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
 
 function Index() {
   return (
