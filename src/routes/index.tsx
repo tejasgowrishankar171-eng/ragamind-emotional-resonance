@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { RagaPlayer } from "@/components/RagaPlayer";
 import { Reveal } from "@/components/Reveal";
 import { SiteHeader } from "@/components/SiteHeader";
 import { featuredRagas, type Raga } from "@/data/ragas";
@@ -141,11 +140,16 @@ function RagaCard({ raga }: { raga: Raga }) {
       </p>
 
       <div className="mt-5 flex flex-wrap gap-3">
-        <RagaPlayer
-          ragaName={raga.name}
-          arohana={raga.arohana}
-          avarohana={raga.avarohana}
-        />
+        <a
+          href={`https://www.youtube.com/watch?v=${raga.video.id}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-lg border border-primary/40 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary/20"
+        >
+          <span aria-hidden="true">▶</span>
+          Watch alapana · {raga.video.artist}
+        </a>
+
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
