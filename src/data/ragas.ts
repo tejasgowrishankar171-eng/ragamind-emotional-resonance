@@ -8,6 +8,7 @@ export type Raga = {
   avarohana: string[];
   scaleLabel: string;
   bullets: string[];
+  video: { id: string; artist: string; title: string };
   listen: { artist: string; url: string }[];
 };
 
@@ -33,6 +34,7 @@ export const featuredRagas: Raga[] = [
       "Landmark compositions include Tyagaraja's 'Endaro Mahanubhavulu' (one of the Pancharatna kritis) and Dikshitar's 'Akshayalinga Vibho'.",
       "Studies of raga and affect (e.g. Balkwill & Thompson's cross-cultural work on emotion in Hindustani rag) find that listeners reliably read joy from scales with wide, major-type intervals and quick tempo — as here.",
     ],
+    video: { id: "088saQOhP9E", artist: "Sanjay Subrahmanyan", title: "Sankarabharanam alapana — Swararaga Sudha" },
     listen: [
       { artist: "Sanjay Subrahmanyan", url: yt("Sanjay Subrahmanyan Sankarabharanam") },
       { artist: "T.M. Krishna", url: yt("T M Krishna Dheerasankarabharanam") },
@@ -56,6 +58,7 @@ export const featuredRagas: Raga[] = [
       "Tyagaraja's 'Chakkani Raja Margamu' and 'Rama Nee Samana Mevaru' are the canonical demonstrations of its range.",
       "Its scale is closely related to Hindustani Kafi, which is likewise classified as a raga of gentle pathos.",
     ],
+    video: { id: "yeMTHIbBAVM", artist: "T.M. Krishna", title: "Kharaharapriya alapana" },
     listen: [
       { artist: "Sanjay Subrahmanyan", url: yt("Sanjay Subrahmanyan Kharaharapriya") },
       { artist: "T.M. Krishna", url: yt("T M Krishna Kharaharapriya") },
@@ -79,6 +82,7 @@ export const featuredRagas: Raga[] = [
       "Traditionally an evening raga, associated with auspiciousness (its name shares a root with 'kalyana', wellbeing).",
       "Key works: Tyagaraja's 'Etavunara', Dikshitar's 'Bhajare Re Chitta' and Shyama Shastri's 'Himagiri Tanaye'.",
     ],
+    video: { id: "bMbT7faDZJI", artist: "Sanjay Subrahmanyan", title: "Ragam Kalyani alapana" },
     listen: [
       { artist: "Sanjay Subrahmanyan", url: yt("Sanjay Subrahmanyan Kalyani RTP") },
       { artist: "T.M. Krishna", url: yt("T M Krishna Kalyani") },
@@ -102,6 +106,7 @@ export const featuredRagas: Raga[] = [
       "Regarded as an auspicious, any-time raga and often taught early to students for exactly that clarity.",
       "Hear it in Tyagaraja's 'Mohana Rama' and Dikshitar's 'Kadambari Priyayai'.",
     ],
+    video: { id: "ZjU3i6SYTP8", artist: "T.M. Krishna", title: "Raga Mohanam alapana" },
     listen: [
       { artist: "Sanjay Subrahmanyan", url: yt("Sanjay Subrahmanyan Mohanam") },
       { artist: "T.M. Krishna", url: yt("T M Krishna Mohanam") },
