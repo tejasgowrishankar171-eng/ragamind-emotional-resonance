@@ -144,11 +144,22 @@ function RagaCard({ raga }: { raga: Raga }) {
           href={`https://www.youtube.com/watch?v=${raga.video.id}`}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={(e) => {
+            // Preview panes can block in-frame navigation to YouTube; force a real new tab.
+            e.preventDefault();
+            window.open(
+              `https://www.youtube.com/watch?v=${raga.video.id}`,
+              "_blank",
+              "noopener,noreferrer",
+            );
+          }}
+          title={raga.video.title}
           className="inline-flex items-center gap-2 rounded-lg border border-primary/40 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary/20"
         >
           <span aria-hidden="true">▶</span>
-          Watch alapana · {raga.video.artist}
+          Watch alapana on YouTube · {raga.video.artist}
         </a>
+
 
         <button
           type="button"
