@@ -89,6 +89,45 @@ const ragaBasics = [
   },
 ];
 
+const healingRagas = [
+  {
+    raga: "Saranga",
+    benefit: "Headache & tension relief",
+    detail:
+      "Traditionally prescribed for headaches and mental fatigue. Its gentle, swaying phrases are said to ease pressure in the head and settle a restless mind.",
+  },
+  {
+    raga: "Neelambari",
+    benefit: "Sleep & insomnia",
+    detail:
+      "The classic lullaby raga. Generations of Carnatic households have used Neelambari to put children to sleep, and raga chikitsa practitioners recommend it for insomnia.",
+  },
+  {
+    raga: "Mohanam",
+    benefit: "Stress & anxiety",
+    detail:
+      "Its tension-free pentatonic scale (no Ma, no Ni) is traditionally used to lower anxiety and steady the breath — the structure itself avoids notes that create unease.",
+  },
+  {
+    raga: "Kharaharapriya",
+    benefit: "Emotional balance",
+    detail:
+      "Believed to soften anger and cool emotional agitation. Its compassionate, unhurried phrases are used in therapy settings to help listeners process grief.",
+  },
+  {
+    raga: "Bhairavi",
+    benefit: "Deep relaxation",
+    detail:
+      "Often the last raga of a concert for a reason: its all-flat descent is said to dissolve accumulated tension and bring the nervous system back to rest.",
+  },
+  {
+    raga: "Hamsadhwani",
+    benefit: "Energy & low mood",
+    detail:
+      "An auspicious, uplifting evening raga traditionally played to lift lethargy and low spirits and to open gatherings on a bright, forward-moving note.",
+  },
+];
+
 const glossary = [
   { term: "Raga", meaning: "A melodic framework with a distinct mood" },
   { term: "Swara", meaning: "A musical note (Sa, Ri, Ga, Ma, Pa, Da, Ni)" },
