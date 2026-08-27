@@ -126,6 +126,12 @@ const healingRagas = [
     detail:
       "An auspicious, uplifting evening raga traditionally played to lift lethargy and low spirits and to open gatherings on a bright, forward-moving note.",
   },
+  {
+    raga: "Charukeshi",
+    benefit: "Digestive ease & acidity",
+    detail:
+      "Valued in raga chikitsa for soothing the stomach and calming acidity-related discomfort. Its blend of serenity and subtle warmth is said to relax the gut and steady the mind after a heavy meal.",
+  },
 ];
 
 const glossary = [
