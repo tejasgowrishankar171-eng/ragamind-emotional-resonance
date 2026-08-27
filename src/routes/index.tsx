@@ -89,6 +89,45 @@ const ragaBasics = [
   },
 ];
 
+const healingRagas = [
+  {
+    raga: "Saranga",
+    benefit: "Headache & tension relief",
+    detail:
+      "Traditionally prescribed for headaches and mental fatigue. Its gentle, swaying phrases are said to ease pressure in the head and settle a restless mind.",
+  },
+  {
+    raga: "Neelambari",
+    benefit: "Sleep & insomnia",
+    detail:
+      "The classic lullaby raga. Generations of Carnatic households have used Neelambari to put children to sleep, and raga chikitsa practitioners recommend it for insomnia.",
+  },
+  {
+    raga: "Mohanam",
+    benefit: "Stress & anxiety",
+    detail:
+      "Its tension-free pentatonic scale (no Ma, no Ni) is traditionally used to lower anxiety and steady the breath — the structure itself avoids notes that create unease.",
+  },
+  {
+    raga: "Kharaharapriya",
+    benefit: "Emotional balance",
+    detail:
+      "Believed to soften anger and cool emotional agitation. Its compassionate, unhurried phrases are used in therapy settings to help listeners process grief.",
+  },
+  {
+    raga: "Bhairavi",
+    benefit: "Deep relaxation",
+    detail:
+      "Often the last raga of a concert for a reason: its all-flat descent is said to dissolve accumulated tension and bring the nervous system back to rest.",
+  },
+  {
+    raga: "Hamsadhwani",
+    benefit: "Energy & low mood",
+    detail:
+      "An auspicious, uplifting evening raga traditionally played to lift lethargy and low spirits and to open gatherings on a bright, forward-moving note.",
+  },
+];
+
 const glossary = [
   { term: "Raga", meaning: "A melodic framework with a distinct mood" },
   { term: "Swara", meaning: "A musical note (Sa, Ri, Ga, Ma, Pa, Da, Ni)" },
@@ -459,6 +498,60 @@ function Index() {
               cross-cultural raga-and-affect research such as Balkwill &amp;
               Thompson (1999).
             </p>
+          </div>
+        </section>
+
+        <div className="rule-fade mx-auto max-w-6xl" />
+
+        {/* Medicinal effects */}
+        <section id="healing" className="px-6 py-24 md:px-12">
+          <div className="mx-auto max-w-6xl">
+            <Reveal className="mb-14 text-center">
+              <SectionLabel>Raga chikitsa</SectionLabel>
+              <h2 className="font-display text-3xl font-bold tracking-tight md:text-5xl">
+                Medicinal effects of ragas
+              </h2>
+              <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+                Raga chikitsa — "treatment through raga" — is a centuries-old
+                South Indian tradition in which specific ragas are listened to
+                to soothe the body and mind. Modern music-therapy research has
+                begun to examine these claims, and the ragas below are the ones
+                most often cited.
+              </p>
+            </Reveal>
+
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {healingRagas.map((item, i) => (
+                <Reveal key={item.raga} delay={i * 70}>
+                  <div className="card-lux group h-full overflow-hidden rounded-2xl p-6 hover:card-lux-hover">
+                    <div className="flex items-start justify-between gap-3">
+                      <h3 className="font-display text-xl font-semibold">
+                        {item.raga}
+                      </h3>
+                      <span className="rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+                        {item.benefit}
+                      </span>
+                    </div>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                      {item.detail}
+                    </p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+
+            <Reveal delay={140}>
+              <p className="mx-auto mt-10 max-w-3xl rounded-2xl border border-border bg-card/50 p-6 text-center text-sm leading-relaxed text-muted-foreground backdrop-blur">
+                <span className="font-semibold text-foreground">
+                  A note of care:
+                </span>{" "}
+                these effects come from the raga chikitsa tradition and
+                emerging music-therapy studies — they are traditional
+                knowledge, not medical treatment. Please consult a qualified
+                doctor for any health concern, and enjoy the ragas as a
+                complement to it.
+              </p>
+            </Reveal>
           </div>
         </section>
 
