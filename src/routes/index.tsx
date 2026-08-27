@@ -128,9 +128,9 @@ const healingRagas = [
   },
   {
     raga: "Charukeshi",
-    benefit: "Digestive ease & acidity",
+    benefit: "Heart ailments",
     detail:
-      "Valued in raga chikitsa for soothing the stomach and calming acidity-related discomfort. Its blend of serenity and subtle warmth is said to relax the gut and steady the mind after a heavy meal.",
+      "Traditionally associated with cardiovascular calm in raga chikitsa. Its serene yet warm melodic arc is said to slow a racing heart, ease chest tightness and support emotional steadiness.",
   },
 ];
 
