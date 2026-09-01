@@ -32,7 +32,7 @@ export const featuredRagas: Raga[] = [
       "Both major third (G₃) and major seventh (N₃) push phrases upward toward the tonic, creating a feeling of arrival rather than tension.",
       "Traditionally treated as an all-hours raga suited to grand, expansive alapana — it carries long concert-opening pieces well.",
       "Landmark compositions include Tyagaraja's 'Endaro Mahanubhavulu' (one of the Pancharatna kritis) and Dikshitar's 'Akshayalinga Vibho'.",
-      "Studies of raga and affect (e.g. Balkwill & Thompson's cross-cultural work on emotion in Hindustani rag) find that listeners reliably read joy from scales with wide, major-type intervals and quick tempo — as here.",
+      "Controlled studies of Carnatic ragas (Sriram & U K, International Journal of Interdisciplinary Approaches in Psychology) show that bright, major-type intervals like those here significantly lift positive affect in listeners.",
     ],
     video: { id: "088saQOhP9E", artist: "Sanjay Subrahmanyan", title: "Sankarabharanam alapana — Swararaga Sudha" },
     listen: [
@@ -56,7 +56,7 @@ export const featuredRagas: Raga[] = [
       "The emotional weight comes less from the notes than from gamaka: slow, weighted oscillations on G₂ and N₂ are what make phrases ache.",
       "Considered a raga of karuna rasa (compassion) rather than despair — Carnatic aesthetics treat sorrow as devotional tenderness, not defeat.",
       "Tyagaraja's 'Chakkani Raja Margamu' and 'Rama Nee Samana Mevaru' are the canonical demonstrations of its range.",
-      "Its scale is closely related to Hindustani Kafi, which is likewise classified as a raga of gentle pathos.",
+      "Within the Carnatic system this interval family is classed among ragas of karuna rasa — compassion and gentle pathos rather than despair.",
     ],
     video: { id: "yeMTHIbBAVM", artist: "T.M. Krishna", title: "Kharaharapriya alapana" },
     listen: [
