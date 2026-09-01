@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import logo from "@/assets/ragamind-logo.png";
 
 const links = [
-  { href: "#what-is-a-raga", label: "What is a raga" },
-  { href: "#emotions", label: "Emotions" },
-  { href: "#featured", label: "Ragas" },
+  { href: "#ragas", label: "Ragas" },
+  { href: "#psychology", label: "Psychology" },
+  { href: "#research", label: "Research findings" },
+  { href: "#medicinal", label: "Medicinal benefits" },
 ];
 
 export function SiteHeader() {
@@ -55,10 +56,10 @@ export function SiteHeader() {
         </nav>
 
         <a
-          href="#featured"
+          href="#medicinal"
           className="rounded-full border border-primary/40 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary/20"
         >
-          Listen
+          Benefits
         </a>
       </div>
     </header>

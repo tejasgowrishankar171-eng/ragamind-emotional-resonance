@@ -12,13 +12,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Discover how Carnatic ragas shape emotion. Learn what a raga is from scratch, then hear which ones evoke happiness, devotion, sorrow, peace, and energy.",
+          "Discover how Carnatic ragas shape emotion, mind, and wellbeing. Learn what a raga is, explore the psychology of rasa, read research findings, and see traditional medicinal uses.",
       },
       { property: "og:title", content: "Ragamind — Feel the Raga" },
       {
         property: "og:description",
         content:
-          "Discover how Carnatic ragas shape emotion. Learn what a raga is from scratch, then hear which ones evoke happiness, devotion, sorrow, peace, and energy.",
+          "Discover how Carnatic ragas shape emotion, mind, and wellbeing. Learn what a raga is, explore the psychology of rasa, read research findings, and see traditional medicinal uses.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -26,6 +26,13 @@ export const Route = createFileRoute("/")({
   }),
   component: Index,
 });
+
+const categories = [
+  { href: "#ragas", label: "Ragas" },
+  { href: "#psychology", label: "Psychology" },
+  { href: "#research", label: "Research findings" },
+  { href: "#medicinal", label: "Medicinal benefits" },
+];
 
 const emotions = [
   {
@@ -86,6 +93,33 @@ const ragaBasics = [
     step: "04",
     title: "Every raga carries a rasa",
     body: "Rasa is the emotional flavour a raga evokes: joy, compassion, devotion, courage, wonder, peace. Musicians reveal it in an unmetered opening improvisation called alapana, before any composition or rhythm begins.",
+  },
+];
+
+const researchFindings = [
+  {
+    title: "Major intervals, major moods",
+    source: "Balkwill & Thompson (1999)",
+    detail:
+      "Cross-cultural listeners hearing Hindustani ragas reliably matched major-type, wide-interval phrases with joy and triumph, while flatter, darker modes were read as sadness or compassion.",
+  },
+  {
+    title: "Scale structure predicts emotion",
+    source: "Carnatic interval analysis & Western parallels",
+    detail:
+      "Shankarabharanam maps to the Western major scale, Kharaharapriya to natural-minor/Dorian territory, and Kalyani to Lydian. These interval families are consistently tied to happiness, pathos, and devotion across empirical studies.",
+  },
+  {
+    title: "Tempo and timbre matter as much as pitch",
+    source: "Music psychology literature",
+    detail:
+      "Slow, sustained notes and soft timbre reduce physiological arousal, which is why ragas like Mohanam and Neelambari are used to quiet anxiety and support sleep.",
+  },
+  {
+    title: "Raga chikitsa as traditional medicine",
+    source: "Ayurvedic & Siddha music-therapy texts",
+    detail:
+      "South Indian raga chikitsa prescribes specific ragas for headaches, insomnia, digestive ease, and heart ailments. Modern music-therapy research is beginning to test these traditional claims.",
   },
 ];
 
@@ -205,7 +239,6 @@ function RagaCard({ raga }: { raga: Raga }) {
           Watch alapana on YouTube · {raga.video.artist}
         </a>
 
-
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
@@ -290,25 +323,22 @@ function Index() {
                 <Reveal delay={160}>
                   <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl">
                     Every raga carries a feeling. Start with no background at
-                    all — learn what a raga actually is, then hear how the
-                    melodic worlds of South Indian classical music shape joy,
-                    devotion, sorrow, serenity and energy.
+                    all — learn what a raga is, then explore the psychology,
+                    research, and traditional healing uses of South Indian
+                    classical music.
                   </p>
                 </Reveal>
                 <Reveal delay={240}>
-                  <div className="mt-9 flex flex-wrap gap-4">
-                    <a
-                      href="#what-is-a-raga"
-                      className="glow-primary inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-base font-semibold text-primary-foreground transition-all hover:bg-primary/90"
-                    >
-                      Start from zero
-                    </a>
-                    <a
-                      href="#featured"
-                      className="inline-flex items-center justify-center rounded-lg border border-input bg-background/60 px-6 py-3 text-base font-semibold text-foreground backdrop-blur transition-all hover:bg-secondary"
-                    >
-                      Hear an alapana
-                    </a>
+                  <div className="mt-9 flex flex-wrap gap-3">
+                    {categories.map((cat) => (
+                      <a
+                        key={cat.href}
+                        href={cat.href}
+                        className="rounded-full border border-border bg-background/60 px-4 py-2 text-sm font-semibold text-foreground backdrop-blur transition-colors hover:border-primary/40 hover:bg-primary/10 hover:text-primary"
+                      >
+                        {cat.label}
+                      </a>
+                    ))}
                   </div>
                 </Reveal>
                 <Reveal delay={320}>
@@ -359,22 +389,19 @@ function Index() {
 
         <div className="rule-fade mx-auto max-w-6xl" />
 
-        {/* What is a raga — beginner primer */}
-        <section id="what-is-a-raga" className="px-6 py-24 md:px-12">
+        {/* Ragas */}
+        <section id="ragas" className="px-6 py-24 md:px-12">
           <div className="mx-auto max-w-6xl">
             <Reveal className="text-center">
-              <SectionLabel>Start here</SectionLabel>
+              <SectionLabel>The music</SectionLabel>
               <h2 className="font-display text-3xl font-bold tracking-tight md:text-5xl">
-                What is a raga?
+                Ragas
               </h2>
               <p className="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-muted-foreground">
-                Never heard Carnatic music before? Here is the whole idea in
-                four steps. A{" "}
-                <span className="text-foreground">raga</span> is a melodic
-                framework — a chosen family of notes, plus strict rules for how
-                they move and which of them the melody rests on. It behaves less
-                like a scale and more like a character: recognisable, alive, and
-                tied to a particular feeling.
+                A raga is a melodic framework — a chosen family of notes, plus
+                strict rules for how they move and which of them the melody
+                rests on. It behaves less like a scale and more like a character:
+                recognisable, alive, and tied to a particular feeling.
               </p>
             </Reveal>
 
@@ -423,22 +450,52 @@ function Index() {
                 that the point of a raga is the feeling it leaves behind.
               </p>
             </Reveal>
+
+            <div className="mt-24">
+              <Reveal className="mb-14 text-center">
+                <SectionLabel>Listening room</SectionLabel>
+                <h3 className="font-display text-2xl font-bold tracking-tight md:text-4xl">
+                  Featured ragas
+                </h3>
+                <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
+                  Watch a legendary singer explore each raga in alapana, then
+                  read what shapes its mood and open a full concert performance.
+                </p>
+              </Reveal>
+
+              <div className="grid gap-6 md:grid-cols-2">
+                {featuredRagas.map((raga, i) => (
+                  <Reveal key={raga.name} delay={i * 80}>
+                    <RagaCard raga={raga} />
+                  </Reveal>
+                ))}
+              </div>
+
+              <p className="mt-10 text-center text-xs text-muted-foreground">
+                Scale structures and melakarta numbering follow the Chaturdandi
+                Prakasika tradition and standard references (Sambamoorthy,
+                <em> South Indian Music</em>); emotion findings draw on
+                cross-cultural raga-and-affect research such as Balkwill &amp;
+                Thompson (1999).
+              </p>
+            </div>
           </div>
         </section>
 
         <div className="rule-fade mx-auto max-w-6xl" />
 
-        {/* Emotions grid */}
-        <section id="emotions" className="px-6 py-24 md:px-12">
+        {/* Psychology */}
+        <section id="psychology" className="px-6 py-24 md:px-12">
           <div className="mx-auto max-w-6xl">
             <Reveal className="mb-14 text-center">
-              <SectionLabel>Rasa map</SectionLabel>
+              <SectionLabel>Rasa & mind</SectionLabel>
               <h2 className="font-display text-3xl font-bold tracking-tight md:text-5xl">
-                Emotions by raga
+                Psychology
               </h2>
-              <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-                Each mood below is a rasa, and each raga listed is one of the
-                classic ways musicians reach for it.
+              <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+                Carnatic aesthetics treat emotion as something a raga does to the
+                listener. Each mood below is a rasa, and each raga listed is
+                one of the classic ways musicians reach for it.
               </p>
             </Reveal>
 
@@ -475,47 +532,50 @@ function Index() {
 
         <div className="rule-fade mx-auto max-w-6xl" />
 
-        {/* Featured ragas */}
-        <section id="featured" className="px-6 py-24 md:px-12">
+        {/* Research findings */}
+        <section id="research" className="px-6 py-24 md:px-12">
           <div className="mx-auto max-w-6xl">
             <Reveal className="mb-14 text-center">
-              <SectionLabel>Listening room</SectionLabel>
+              <SectionLabel>Evidence</SectionLabel>
               <h2 className="font-display text-3xl font-bold tracking-tight md:text-5xl">
-                Featured ragas
+                Research findings
               </h2>
-              <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-                Press play for a sung alapana over a tanpura drone, then read
-                what shapes its mood and open a full concert performance.
+              <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+                The links between raga and emotion are not only poetic.
+                Empirical studies in music psychology and traditional raga
+                chikitsa texts point to consistent patterns.
               </p>
             </Reveal>
 
             <div className="grid gap-6 md:grid-cols-2">
-              {featuredRagas.map((raga, i) => (
-                <Reveal key={raga.name} delay={i * 80}>
-                  <RagaCard raga={raga} />
+              {researchFindings.map((item, i) => (
+                <Reveal key={item.title} delay={i * 80}>
+                  <div className="card-lux h-full rounded-2xl p-7 hover:card-lux-hover">
+                    <span className="rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                      {item.source}
+                    </span>
+                    <h3 className="mt-5 font-display text-xl font-semibold">
+                      {item.title}
+                    </h3>
+                    <p className="mt-3 leading-relaxed text-muted-foreground">
+                      {item.detail}
+                    </p>
+                  </div>
                 </Reveal>
               ))}
             </div>
-
-            <p className="mt-10 text-center text-xs text-muted-foreground">
-              Scale structures and melakarta numbering follow the Chaturdandi
-              Prakasika tradition and standard references (Sambamoorthy,
-              <em> South Indian Music</em>); emotion findings draw on
-              cross-cultural raga-and-affect research such as Balkwill &amp;
-              Thompson (1999).
-            </p>
           </div>
         </section>
 
         <div className="rule-fade mx-auto max-w-6xl" />
 
-        {/* Medicinal effects */}
-        <section id="healing" className="px-6 py-24 md:px-12">
+        {/* Medicinal benefits */}
+        <section id="medicinal" className="px-6 py-24 md:px-12">
           <div className="mx-auto max-w-6xl">
             <Reveal className="mb-14 text-center">
               <SectionLabel>Raga chikitsa</SectionLabel>
               <h2 className="font-display text-3xl font-bold tracking-tight md:text-5xl">
-                Medicinal effects of ragas
+                Medicinal benefits
               </h2>
               <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
                 Raga chikitsa — "treatment through raga" — is a centuries-old
@@ -582,10 +642,10 @@ function Index() {
                 your connection to Carnatic music becomes.
               </p>
               <a
-                href="#emotions"
+                href="#ragas"
                 className="glow-primary mt-8 inline-flex items-center justify-center rounded-lg bg-primary px-8 py-3.5 text-base font-semibold text-primary-foreground transition-all hover:bg-primary/90"
               >
-                Explore the moods
+                Explore the ragas
               </a>
             </div>
           </Reveal>
