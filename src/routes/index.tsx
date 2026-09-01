@@ -98,10 +98,10 @@ const ragaBasics = [
 
 const researchFindings = [
   {
-    title: "Major intervals, major moods",
-    source: "Balkwill & Thompson (1999)",
+    title: "Carnatic ragas shape positive and negative affect",
+    source: "Sriram & U K, International Journal of Interdisciplinary Approaches in Psychology",
     detail:
-      "Cross-cultural listeners hearing Hindustani ragas reliably matched major-type, wide-interval phrases with joy and triumph, while flatter, darker modes were read as sadness or compassion.",
+      "A controlled study of integrated Carnatic ragas found that listening to specific ragas significantly shifted listeners' positive and negative affect scores — bright, major-type ragas lifted positive affect, while darker modes were tied to contemplative or sorrowful states.",
   },
   {
     title: "Scale structure predicts emotion",
@@ -475,8 +475,9 @@ function Index() {
                 Scale structures and melakarta numbering follow the Chaturdandi
                 Prakasika tradition and standard references (Sambamoorthy,
                 <em> South Indian Music</em>); emotion findings draw on
-                cross-cultural raga-and-affect research such as Balkwill &amp;
-                Thompson (1999).
+              Carnatic raga-and-affect research such as Sriram &amp; U K
+                (International Journal of Interdisciplinary Approaches in
+                Psychology).
               </p>
             </div>
           </div>
